@@ -62,8 +62,11 @@
 
             <canvas id="myChart"></canvas>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="./assets/js/index.js"></script>
+        <script src="./assets/db.js"></script>
         <script>
-            async function initApp() {
+            ;(async () => {
                 if (!navigator.serviceWorker) {
                     //checks if browser is capable of having a serviceWorker
                     console.log("no service workers")
@@ -71,16 +74,13 @@
                 }
                 navigator.serviceWorker.register("./service-worker.js")
 
-                // const reg = await navigator.serviceWorker.ready
-                // console.log(`serviceWorker registered and ready: `, reg)
+                const reg = await navigator.serviceWorker.ready
+                console.log(`serviceWorker registered and ready: `, reg)
 
                 // setInterval(() => {
                 //     reg.active.postMessage(`[index] ping service worker`)
                 // }, 3000)
-            }
+            })()
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-        <script src="./assets/js/index.js"></script>
-        <script src="./assets/db.js"></script>
     </body>
 </html>
